@@ -3,11 +3,23 @@ package br.com.pkmeanssimulator.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Signal {
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+@XmlRootElement(name = "signal")
+public class Signal extends Element{
+	
+	@XmlAttribute(name = "cycle_duration")
 	private int cycle_duration;
+	@XmlAttribute(name = "offset")
 	private int offset;
+	@XmlElement(name = "nodes")
 	private List<Node> nodes = new ArrayList<>();
+	@XmlElement(name = "phases")
 	private List<Phase> phases = new ArrayList<>();
 	
 	public int getCycle_duration() {
@@ -41,7 +53,16 @@ public class Signal {
 	public void setPhases(List<Phase> phases) {
 		this.phases = phases;
 	}
+
+	@Override
+	public Node getNode(Map map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
-	
+	@Override
+	public String toString() {
+		return new ToStringBuilder(this, ToStringStyle.JSON_STYLE).toString();
+	}
 	
 }

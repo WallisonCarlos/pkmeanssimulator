@@ -1,10 +1,20 @@
 package br.com.pkmeanssimulator.model;
 
-public class Node {
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
-	private int id;
-	private double x;
-	private double y;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+@XmlRootElement(name = "node")
+public class Node extends Element{
+
+	@XmlAttribute(name = "id")
+	public int id;
+	@XmlAttribute(name = "x")
+	public double x;
+	@XmlAttribute(name = "y")
+	public double y;
 	
 	public Node() {
 	
@@ -21,36 +31,21 @@ public class Node {
 		this.y = y;
 	}
 	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public double getX() {
-		return x;
-	}
-
-	public void setX(double x) {
-		this.x = x;
-	}
-
-	public double getY() {
-		return y;
-	}
-
-	public void setY(double y) {
-		this.y = y;
-	}
 	
 	public double distance(Node node) {
-		return Math.sqrt(Math.pow((node.getY() - this.getY()), 2) + Math.pow((node.getX() - this.getX()), 2));
+		return Math.sqrt(Math.pow((node.y - this.y), 2) + Math.pow((node.x - this.x), 2));
 
 	}
+
+	@Override
+	public Node getNode(Map map) {
+		return this;
+	}
 	
-	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE).toString();
+	}
 	
 	
 }

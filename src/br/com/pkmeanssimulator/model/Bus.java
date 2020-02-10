@@ -3,14 +3,23 @@ package br.com.pkmeanssimulator.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bus implements Element{
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+@XmlRootElement(name = "bus")
+public class Bus extends Element{
+	
 	
 	private String id;
-	private Integer inverval;
-	private Integer start_time;
+	private int inverval;
+	private int startTime;
 	private String stops;
 	List<Integer> nodesIds = new ArrayList<>();
 	
+	@XmlAttribute(name = "id")
 	public String getId() {
 		return id;
 	}
@@ -18,23 +27,26 @@ public class Bus implements Element{
 	public void setId(String id) {
 		this.id = id;
 	}
-	
-	public Integer getInverval() {
+
+	@XmlAttribute(name = "interval")
+	public int getInverval() {
 		return inverval;
 	}
 	
-	public void setInverval(Integer inverval) {
+	public void setInverval(int inverval) {
 		this.inverval = inverval;
 	}
-	
-	public Integer getStart_time() {
-		return start_time;
+
+	@XmlAttribute(name = "start_time")
+	public int getStartTime() {
+		return startTime;
 	}
 	
-	public void setStart_time(Integer start_time) {
-		this.start_time = start_time;
+	public void setStartTime(int startTime) {
+		this.startTime = startTime;
 	}
-	
+
+	@XmlAttribute(name = "stops")
 	public String getStops() {
 		return stops;
 	}
@@ -58,9 +70,13 @@ public class Bus implements Element{
 
 	@Override
 	public Node getNode(Map map) {
+		System.out.println("bus");
 		return (getNodesId().isEmpty()) ? null : map.getNode(getNodesId().get(0));
 	}
 
-	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE).toString();
+	}
 
 }

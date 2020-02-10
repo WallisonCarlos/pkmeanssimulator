@@ -1,7 +1,21 @@
 package br.com.pkmeanssimulator.model;
 
-public interface Element {
+public abstract class Element {
 	
-	public Node getNode(Map map);
+	private ElementTypeEnum typeElement;
+	
+	public abstract Node getNode(Map map);
+
+	public ElementTypeEnum getTypeElement() {
+		return typeElement;
+	}
+
+	public void setTypeElement(ElementTypeEnum typeElement) {
+		this.typeElement = typeElement;
+	}
+
+	
+	
+	
 
 }

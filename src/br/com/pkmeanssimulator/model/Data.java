@@ -3,22 +3,25 @@ package br.com.pkmeanssimulator.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 public class Data {
 	
-	private List<Trip> trips = new ArrayList<>();
+	private SCSimulatorMatrix scSimulatorMatrix;
 	private List<Signal> signals = new ArrayList<>();
 	private Map map;
 	private Metro metro;
-	private List<Bus> buses = new ArrayList<>();
+	private SimulatorBuses simulatorBuses;
 	
-	public List<Trip> getTrips() {
-		return trips;
+	public SCSimulatorMatrix getScSimulatorMatrix() {
+		return scSimulatorMatrix;
 	}
-	
-	public void setTrips(List<Trip> trips) {
-		this.trips = trips;
+
+	public void setScSimulatorMatrix(SCSimulatorMatrix scSimulatorMatrix) {
+		this.scSimulatorMatrix = scSimulatorMatrix;
 	}
-	
+
 	public List<Signal> getSignals() {
 		return signals;
 	}
@@ -43,14 +46,26 @@ public class Data {
 		this.metro = metro;
 	}
 	
-	public List<Bus> getBuses() {
-		return buses;
+	public SimulatorBuses getSimulatorBuses() {
+		return simulatorBuses;
+	}
+
+	public void setSimulatorBuses(SimulatorBuses simulatorBuses) {
+		this.simulatorBuses = simulatorBuses;
 	}
 	
-	public void setBuses(List<Bus> buses) {
-		this.buses = buses;
+	public List<Element> getElements() {
+		List<Element> elements = new ArrayList<>();
+		elements.addAll(simulatorBuses.getBuses());
+		elements.addAll(scSimulatorMatrix.trips);
+		elements.addAll(map.nodes.nodes);
+		elements.addAll(metro.stations.stations);
+		return elements;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE).toString();
+	}
 
 }

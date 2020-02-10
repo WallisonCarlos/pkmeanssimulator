@@ -1,0 +1,11 @@
+<scsimulator_config>
+<config 
+    traffic_signals_file="../scenario4/signals.xml" 
+    trip_file="../sp_completo/trips.xml" 
+    map_file="../sp_completo/map.xml" 
+    output_file="../sp_completo/events.xml" 
+    metro_file="../sp_completo/metro.xml" 
+    bus_file="../sp_completo/buses.xml"  
+    digital_rails_file="../scenario5/empty-digital-rails.xml"
+    simulation_time="86400"/>
+</scsimulator_config>

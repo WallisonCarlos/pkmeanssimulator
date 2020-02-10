@@ -1,112 +1,50 @@
 package br.com.pkmeanssimulator.model;
 
-public class Link {
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
-	private int id;
-	private int from;
-	private int to;
-	private double length;
-	private double freespeed;
-	private double capacity;
-	private float permlanes;
-	private int oneway;
-	private String modes;
-	private int originid;
-	private String type;
+@XmlRootElement(name = "link")
+public class Link extends Element{
+
+	@XmlAttribute(name = "id")
+	public int id;
+	@XmlAttribute(name = "from")
+	public int from;
+	@XmlAttribute(name = "to")
+	public int to;
+	@XmlAttribute(name = "length")
+	public double length;
+	@XmlAttribute(name = "freespeed")
+	public double freespeed;
+	@XmlAttribute(name = "capacity")
+	public double capacity;
+	@XmlAttribute(name = "permlanes")
+	public float permlanes;
+	@XmlAttribute(name = "oneway")
+	public int oneway;
+	@XmlAttribute(name = "modes")
+	public String modes;
+	@XmlAttribute(name = "originid")
+	public int originid;
+	@XmlAttribute(name = "type")
+	public String type;
 	
 	public Link() {
 	
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public int getFrom() {
-		return from;
-	}
-
-	public void setFrom(int from) {
-		this.from = from;
-	}
-
-	public int getTo() {
-		return to;
-	}
-
-	public void setTo(int to) {
-		this.to = to;
-	}
-
-	public double getLength() {
-		return length;
-	}
-
-	public void setLength(double length) {
-		this.length = length;
-	}
-
-	public double getFreespeed() {
-		return freespeed;
-	}
-
-	public void setFreespeed(double freespeed) {
-		this.freespeed = freespeed;
-	}
-
-	public double getCapacity() {
-		return capacity;
-	}
-
-	public void setCapacity(double capacity) {
-		this.capacity = capacity;
-	}
-
-	public float getPermlanes() {
-		return permlanes;
-	}
-
-	public void setPermlanes(float permlanes) {
-		this.permlanes = permlanes;
-	}
-
-	public int getOneway() {
-		return oneway;
-	}
-
-	public void setOneway(int oneway) {
-		this.oneway = oneway;
-	}
-
-	public String getModes() {
-		return modes;
-	}
-
-	public void setModes(String modes) {
-		this.modes = modes;
-	}
-
-	public int getOriginid() {
-		return originid;
-	}
-
-	public void setOriginid(int originid) {
-		this.originid = originid;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
+	@Override
+	public Node getNode(Map map) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE).toString();
+	}
 	
 }

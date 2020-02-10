@@ -3,27 +3,33 @@ package br.com.pkmeanssimulator.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Metro {
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+@XmlRootElement(name = "metro")
+public class Metro extends Element{
 	
-	private List<Station> stations = new ArrayList<>();
-	private List<LinkMetro> links = new ArrayList<>();
+	@XmlElement(name = "stations")
+	public Stations stations;
+	@XmlElement(name = "links")
+	public List<LinkMetro> links = new ArrayList<>();
 	
-	public List<Station> getStations() {
-		return stations;
+	public Metro() {
+		setTypeElement(ElementTypeEnum.METRO);
 	}
 	
-	public void setStations(List<Station> stations) {
-		this.stations = stations;
+	@Override
+	public Node getNode(Map map) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
-	public List<LinkMetro> getLinks() {
-		return links;
+	@Override
+	public String toString() {
+		return new ToStringBuilder(this, ToStringStyle.JSON_STYLE).toString();
 	}
-	
-	public void setLinks(List<LinkMetro> links) {
-		this.links = links;
-	}
-	
-	
 
 }

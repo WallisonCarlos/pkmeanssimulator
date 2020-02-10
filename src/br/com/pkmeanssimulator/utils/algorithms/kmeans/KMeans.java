@@ -3,6 +3,7 @@ package br.com.pkmeanssimulator.utils.algorithms.kmeans;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import br.com.pkmeanssimulator.model.Data;
 import br.com.pkmeanssimulator.model.Element;
@@ -12,12 +13,7 @@ public class KMeans {
 	
 	//Number of Clusters. This metric should be related to the number of points
     private int NUM_CLUSTERS = 2;    
-    //Number of Points
-    private int NUM_POINTS = 15;
     private Data data;
-    //Min and Max X and Y
-    private static final int MIN_COORDINATE = 0;
-    private static final int MAX_COORDINATE = 10;
     
     private List<Cluster> clusters;
     private List<Element> elements;
@@ -25,16 +21,31 @@ public class KMeans {
     public KMeans(int clusters, Data data) {
     	this.data = data;
     	NUM_CLUSTERS = clusters;
-    	this.clusters = new ArrayList<>();
-    	this.elements = new ArrayList<>();
+    	this.elements = data.getElements();
+    	this.clusters = createClusters();	
+    }
+    
+    private List<Cluster> createClusters() {
+    	List<Cluster> clusters = new ArrayList<>();
+    	Random rand = new Random();
+    	for (int i = 0;i < NUM_CLUSTERS;i++) {
+    		clusters.add(new Cluster(i));
+    		Node node = elements.get(Math.abs((int) (rand.nextInt() % elements.size()))).getNode(data.getMap());
+    		clusters.get(i).setCentroid(new Node(node.id, node.x, node.y));
+    	}
+    	return clusters;
+    }
+    public void showClusters() {
+    	for (Cluster cluster : clusters) {
+    		System.out.println(cluster);
+    	}
     }
     
 	//The process to calculate the K Means, with iterating method.
     public void calculate() {
-        boolean finish = false;
-        int iteration = 0;
-        
+        boolean finish = false;        
         // Add in new data, one at a time, recalculating centroids with each new one. 
+        int iteration = 0;
         while(!finish) {
         	//Clear cluster state
         	clearClusters();
@@ -47,8 +58,6 @@ public class KMeans {
             //Calculate new centroids.
         	calculateCentroids();
         	
-        	iteration++;
-        	
         	List<Node> currentCentroids = getCentroids();
         	
         	//Calculates total distance between new and old Centroids
@@ -56,11 +65,9 @@ public class KMeans {
         	for(int i = 0; i < lastCentroids.size(); i++) {
         		distance += lastCentroids.get(i).distance(currentCentroids.get(i));
         	}
-        	System.out.println("#################");
-        	System.out.println("Iteration: " + iteration);
-        	System.out.println("Centroid distances: " + distance);
+        	System.out.println("Iteration "+iteration+": ");
         	        	
-        	if(distance == 0) {
+        	if(distance <= 0.0001) {
         		finish = true;
         	}
         }
@@ -76,7 +83,7 @@ public class KMeans {
     	List<Node> centroids = new ArrayList<>(NUM_CLUSTERS);
     	for(Cluster cluster : clusters) {
     		Node aux = cluster.getCentroid();
-    		Node node = new Node(aux.getId(), aux.getX(),aux.getY());
+    		Node node = new Node(aux.id, aux.x,aux.y);
     		centroids.add(node);
     	}
     	return centroids;
@@ -112,8 +119,8 @@ public class KMeans {
             
             for(Element element : elements) {
             	Node node = element.getNode(data.getMap());
-            	sumX += node.getX();
-                sumY += node.getY();
+            	sumX += node.x;
+                sumY += node.y;
             }
             
             Node centroid = cluster.getCentroid();
