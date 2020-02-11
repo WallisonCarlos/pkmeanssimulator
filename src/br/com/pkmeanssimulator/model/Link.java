@@ -31,6 +31,7 @@ public class Link extends Element{
 	public int originid;
 	@XmlAttribute(name = "type")
 	public String type;
+	public double weight = 1.0;
 	
 	public Link() {
 	
@@ -42,9 +43,22 @@ public class Link extends Element{
 		return null;
 	}
 	
+	public boolean equals(Object link) {
+		if (link != null) {
+			if (link instanceof Link) { 
+				return id == ((Link) link).id;
+			}
+		}
+		return false;
+	}
+	
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE).toString();
+	}
+	
+	public Node[] getNodes(Map map) {
+		return new Node[]{map.getNode(from), map.getNode(to)};
 	}
 	
 }

@@ -43,6 +43,16 @@ public class Node extends Element{
 	}
 	
 	@Override
+	public boolean equals(Object node) {
+		if (node != null) {
+			if (node instanceof Node) {
+				return id == ((Node) node).id;
+			}
+		}
+		return false;
+	}
+	
+	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE).toString();
 	}
