@@ -147,9 +147,10 @@ public class KernighanLin {
 	    double maxGain = Double.NEGATIVE_INFINITY;
 	    
 	    for (Node vertexA : unswappedA.getVertices()) {
+	    	System.out.println("Vertex A: "+vertexA);
 	    	for (Node vertexB : unswappedB.getVertices()) {
-	        
 	        Link edge = graph.findEdge(vertexA, vertexB);
+//	        System.out.println("Vertex A: "+vertexA+" Vertex B:"+vertexB+" Edge: "+edge);
 	        double edgeCost = (edge != null) ? edge.weight : 0;
 	        // Calculate the gain in cost if these vertices were swapped
 	        // subtract 2*edge_cost because this edge will still be an external edge

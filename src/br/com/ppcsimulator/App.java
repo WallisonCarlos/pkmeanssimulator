@@ -25,7 +25,7 @@ public class App {
 	private static KMeans kMeans;
 	private static BinaryGraphPartitioning bgp;
 	public static void main(String args[]) throws JAXBException, CloneNotSupportedException {
-		ModelFactory.BASE_DIR = "scenarios/test";
+		ModelFactory.BASE_DIR = "scenarios/sp_completo";
 		map = ModelFactory.buildMap();
 //		simulatorBuses = ModelFactory.buildSimulatorBuses();
 //		metro = ModelFactory.buildMetro();
