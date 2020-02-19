@@ -56,10 +56,10 @@ public class Data {
 	
 	public List<Element> getElements() {
 		List<Element> elements = new ArrayList<>();
-		elements.addAll(simulatorBuses.getBuses());
-		elements.addAll(scSimulatorMatrix.trips);
+//		elements.addAll(simulatorBuses.getBuses());
+//		elements.addAll(scSimulatorMatrix.trips);
 		elements.addAll(map.nodes.nodes);
-		elements.addAll(metro.stations.stations);
+//		elements.addAll(metro.stations.stations);
 		return elements;
 	}
 

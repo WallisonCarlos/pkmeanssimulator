@@ -5,6 +5,7 @@ import java.util.Set;
 
 import br.com.ppcsimulator.model.Link;
 import br.com.ppcsimulator.model.Map;
+import br.com.ppcsimulator.model.Neighbor;
 import br.com.ppcsimulator.model.Node;
 import br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning.kernighanlin.Pair;
 
@@ -95,6 +96,36 @@ public class Graph implements Cloneable{
 	    	}
 	    }
 	    return neighbors;
+	}
+	
+	public Set<Neighbor> getNeighbors2(Node vertex) {
+		Set<Neighbor> neighbors = new HashSet<Neighbor>();
+	    for (Link edge : edges) {
+	    	if (edge.from == vertex.id) {
+	    		Node v = getNode(edge.to);
+	    		if (v != null) {
+	    			neighbors.add(new Neighbor(v, edge));
+	    		}
+	    		continue;
+	    	}
+	    	if (edge.to == vertex.id) {
+	    		Node v = getNode(edge.from);
+	    		if (v != null) {
+	    			neighbors.add(new Neighbor(v, edge));
+	    		}
+	    		continue;
+	    	}
+	    }
+	    return neighbors;
+	}
+	
+	public Node getNode(int id) {
+		for (Node v : vertices) {
+			if (v.id == id) {
+				return v;
+			}
+		}
+		return null;
 	}
 	
 	public Set<Link> getEdgesFrom(Set<Node> vertices) {

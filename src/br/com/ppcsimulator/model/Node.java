@@ -15,6 +15,7 @@ public class Node extends Element{
 	public double x;
 	@XmlAttribute(name = "y")
 	public double y;
+	public boolean matched;
 	
 	public Node() {
 	

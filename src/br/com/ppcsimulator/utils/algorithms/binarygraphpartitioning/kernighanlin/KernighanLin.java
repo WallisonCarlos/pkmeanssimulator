@@ -148,7 +148,10 @@ public class KernighanLin {
 	    
 	    for (Node vertexA : unswappedA.getVertices()) {
 	    	System.out.println("Vertex A: "+vertexA);
+	    	int i =0;
 	    	for (Node vertexB : unswappedB.getVertices()) {
+	    		System.out.println(i);
+	    		i++;
 	        Link edge = graph.findEdge(vertexA, vertexB);
 //	        System.out.println("Vertex A: "+vertexA+" Vertex B:"+vertexB+" Edge: "+edge);
 	        double edgeCost = (edge != null) ? edge.weight : 0;

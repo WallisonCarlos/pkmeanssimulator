@@ -14,6 +14,7 @@ import br.com.ppcsimulator.model.SCSimulatorMatrix;
 import br.com.ppcsimulator.model.SimulatorBuses;
 import br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning.BinaryGraphPartitioning;
 import br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning.Graph;
+import br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning.kernighanlin.KernighanLin;
 import br.com.ppcsimulator.utils.algorithms.kmeans.KMeans;
 
 public class App {
@@ -37,8 +38,16 @@ public class App {
 //		data.setScSimulatorMatrix(scSimulatorMatrix);
 //		data.setSimulatorBuses(simulatorBuses);
 		bgp = new BinaryGraphPartitioning(8);
-		bgp.partition(new Graph(map));
-		bgp.printLeaves();
+		Graph graph = new Graph(map);
+		System.out.println("Before:\n"+graph);
+		Graph g = bgp.coarsening(graph);
+		System.out.println("After:\n"+g);
+		KernighanLin kernighanLin = KernighanLin.process(g);
+		System.out.println("CutCost: "+kernighanLin.getCutCost());
+		System.out.println("Graph A: "+kernighanLin.getA()+"\nGraph B: "+kernighanLin.getB());
+		
+		//bgp.partition(new Graph(map));
+		//bgp.printLeaves();
 		
 	}
 	

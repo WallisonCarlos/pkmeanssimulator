@@ -18,7 +18,31 @@ public class KMeans {
     private List<Cluster> clusters;
     private List<Element> elements;
     
-    public KMeans(int clusters, Data data) {
+    public Data getData() {
+		return data;
+	}
+
+	public void setData(Data data) {
+		this.data = data;
+	}
+
+	public List<Cluster> getClusters() {
+		return clusters;
+	}
+
+	public void setClusters(List<Cluster> clusters) {
+		this.clusters = clusters;
+	}
+
+	public List<Element> getElements() {
+		return elements;
+	}
+
+	public void setElements(List<Element> elements) {
+		this.elements = elements;
+	}
+	
+	public KMeans(int clusters, Data data) {
     	this.data = data;
     	NUM_CLUSTERS = clusters;
     	this.elements = data.getElements();

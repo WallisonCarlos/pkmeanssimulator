@@ -1,8 +1,16 @@
 package br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning;
 
+import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
+import br.com.ppcsimulator.model.Data;
+import br.com.ppcsimulator.model.Element;
+import br.com.ppcsimulator.model.Link;
+import br.com.ppcsimulator.model.Neighbor;
 import br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning.kernighanlin.KernighanLin;
+import br.com.ppcsimulator.utils.algorithms.kmeans.Cluster;
+import br.com.ppcsimulator.utils.algorithms.kmeans.KMeans;
 
 public class BinaryGraphPartitioning {
 	
@@ -83,6 +91,112 @@ public class BinaryGraphPartitioning {
 		System.out.println(node);
 		printLeaves(node.getLeft());
 		printLeaves(node.getRight());
+	}
+	
+//	public Graph coarsening(Graph graph) {
+//		Graph g = new Graph(graph.getMap()).clear();
+//		int i = 1;
+//		for (br.com.ppcsimulator.model.Node u : graph.getVertices()) {
+//			System.out.println(i+" - "+u);
+//			if (!u.matched) {
+//				u.matched = true;
+//				for (br.com.ppcsimulator.model.Node v : graph.getVertices()) {
+//					g.addVertex(u);
+//					Link edge = graph.findEdge(u, v);
+//					if (edge != null && !v.matched) {
+//						v.matched = true;
+//						g.addEdge(edge);
+//						g.addVertex(v);
+//					}
+//				}
+//			}
+//			System.out.println(i+" - "+u);
+//			i++;
+//		}
+//		return g;
+//	}
+	
+	public Graph coarsening(Graph graph) {
+		Graph g = new Graph(graph.getMap()).clear();
+		for (br.com.ppcsimulator.model.Node u : graph.getVertices()) {
+			if (!u.matched) {
+				u.matched = true;
+				g.addVertex(u);
+				for (Neighbor neighbor : graph.getNeighbors2(u)) {
+					if (neighbor.link != null && !neighbor.node.matched) {
+						neighbor.node.matched = true;
+						g.addEdge(neighbor.link);
+						g.addVertex(neighbor.node);
+					}
+				}
+			}
+		}
+		return g;
+	}
+	
+	public Graph coarseningNeighborsTuned(Graph graph) {
+		Graph g = new Graph(graph.getMap()).clear();
+		Data data = new Data();
+		data.setMap(graph.getMap());
+		KMeans kMeans = new KMeans((graph.getVertices().size() / 500), data);
+		kMeans.calculate();
+		int c = 0;
+		for (Cluster cluster : kMeans.getClusters()) {
+			System.out.println(c+" "+cluster);
+			int i = 1;
+			for (Element ue : cluster.getElements()) {
+				br.com.ppcsimulator.model.Node u = (br.com.ppcsimulator.model.Node) ue;
+				System.out.println(i+" - "+u);
+				if (!u.matched) {
+					u.matched = true;
+					g.addVertex(u);
+					for (Neighbor neighbor : graph.getNeighbors2(u)) {
+						if (neighbor.link != null && !neighbor.node.matched) {
+							neighbor.node.matched = true;
+							g.addEdge(neighbor.link);
+							g.addVertex(neighbor.node);
+						}
+					}
+				}
+				System.out.println(i+" - "+u);
+				i++;
+			}
+		}
+		return g;
+	}
+	
+	public Graph coarseningKmeans(Graph graph) {
+		Graph g = new Graph(graph.getMap()).clear();
+		
+		Data data = new Data();
+		data.setMap(graph.getMap());
+		KMeans kMeans = new KMeans((graph.getVertices().size() / 500), data);
+		kMeans.calculate();
+		int c = 0;
+		for (Cluster cluster : kMeans.getClusters()) {
+			System.out.println(c+" "+cluster);
+			int i = 1;
+			for (Element ue : cluster.getElements()) {
+				br.com.ppcsimulator.model.Node u = (br.com.ppcsimulator.model.Node) ue;
+				if (!u.matched) {
+					u.matched = true;
+					for (Element ve : cluster.getElements()) {
+						br.com.ppcsimulator.model.Node v = (br.com.ppcsimulator.model.Node) ve;
+						g.addVertex(u);
+						Link edge = graph.findEdge(u, v);
+						if (edge != null && !v.matched) {
+							v.matched = true;
+							g.addEdge(edge);
+							g.addVertex(v);
+						}
+					}
+				}
+				//System.out.println(i+" - "+u);
+				i++;
+			}
+			c++;
+		}
+		return g;
 	}
 
 }
