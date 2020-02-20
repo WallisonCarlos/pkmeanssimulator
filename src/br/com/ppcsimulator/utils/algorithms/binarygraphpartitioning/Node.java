@@ -104,9 +104,9 @@ public class Node {
 				scenario.getTrips().trips.add(trip);
 			}
 		}
-		TrafficSignals ts = new TrafficSignals();
-		ts.signals = data.getSignals();
-		scenario.setSignals(ts);
+//		TrafficSignals ts = new TrafficSignals();
+//		ts.signals = data.getSignals();
+//		scenario.setSignals(ts);
 		try {
 			scenario.createFiles("partition-"+id);
 		} catch (Exception e) {

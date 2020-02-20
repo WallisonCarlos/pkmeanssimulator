@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.xml.bind.JAXBException;
 
+import br.com.ppcsimulator.model.Data;
 import br.com.ppcsimulator.model.Map;
 import br.com.ppcsimulator.model.Metro;
 import br.com.ppcsimulator.model.ModelFactory;
@@ -22,13 +23,19 @@ public class App {
 	private static KMeans kMeans;
 	private static BinaryGraphPartitioning bgp;
 	public static void main(String args[]) throws JAXBException, CloneNotSupportedException, IOException {
-		ModelFactory.BASE_DIR = "output_scenarios/first";
+		ModelFactory.BASE_DIR = "scenarios/sp_completo";
 		map = ModelFactory.buildMap();
 		simulatorBuses = ModelFactory.buildSimulatorBuses();
 		metro = ModelFactory.buildMetro();
 		scSimulatorMatrix = ModelFactory.buildSCSimulatorMatrix();
+		Data data = new Data();
+		data.setMap(map);
+		data.setMetro(metro);
+		data.setSimulatorBuses(simulatorBuses);
+		data.setScSimulatorMatrix(scSimulatorMatrix);
 		System.out.println(map.nodes.nodes.size());
 		bgp = new BinaryGraphPartitioning(8);
+		bgp.setData(data);
 		Graph graph = new Graph(map);
 		System.out.println("Before:\n"+graph);
 		Graph g = bgp.coarsening(graph);

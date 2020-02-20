@@ -31,7 +31,7 @@ public class Scenario {
 			new XMLConversor<Map>(map, new File("output_scenarios/"+scenario+"/map.xml")).createFile();
 			new XMLConversor<SCSimulatorMatrix>(trips, new File("output_scenarios/"+scenario+"/trips.xml")).createFile();
 			new XMLConversor<Metro>(metro, new File("output_scenarios/"+scenario+"/metro.xml")).createFile();
-			new XMLConversor<TrafficSignals>(signals, new File("output_scenarios/"+scenario+"/signals.xml")).createFile();
+//			new XMLConversor<TrafficSignals>(signals, new File("output_scenarios/"+scenario+"/signals.xml")).createFile();
 			new XMLConversor<SimulatorBuses>(buses, new File("output_scenarios/"+scenario+"/buses.xml")).createFile();
 		} else {
 			System.err.println("Erro ao criar pasta do cenário!");
