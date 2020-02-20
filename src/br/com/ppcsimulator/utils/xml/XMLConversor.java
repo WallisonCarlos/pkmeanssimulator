@@ -1,13 +1,12 @@
 package br.com.ppcsimulator.utils.xml;
 
 import java.io.File;
+import java.io.IOException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-
-import br.com.ppcsimulator.model.Map;  
+import javax.xml.bind.Unmarshaller;  
 
 public class XMLConversor<T> {
 	
@@ -16,6 +15,25 @@ public class XMLConversor<T> {
 	
 	public XMLConversor(File file) {
 		this.file = file;
+	}
+	
+	public XMLConversor(T object, File file) {
+		this.file = file;
+		this.object = object;
+	}
+	
+	public void createFile() {
+		try {
+			file = objetctToXml();
+			if (file.createNewFile()) {
+				System.out.println("File created: " + file.getName());
+			} else {
+				System.out.println("File already exists.");
+			}
+    	} catch (IOException e) {
+    		System.out.println("An error occurred.");
+    		e.printStackTrace();
+	    }
 	}
 	
 	public File objetctToXml() {

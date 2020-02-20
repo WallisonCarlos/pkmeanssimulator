@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<network>
+    <nodes>
+        <node id="1" x="2819741.636735585" y="7204646.500622427">
+            <matched>false</matched>
+        </node>
+        <node id="2" x="2819776.4661007267" y="7204525.699384628">
+            <matched>false</matched>
+        </node>
+        <node id="3" x="2819809.6189024015" y="7204568.48750438">
+            <matched>false</matched>
+        </node>
+        <node id="4" x="2814939.6971275257" y="7203583.539704077">
+            <matched>false</matched>
+        </node>
+        <node id="5" x="2814988.779757035" y="7203717.03761317">
+            <matched>false</matched>
+        </node>
+        <node id="6" x="2815001.033321289" y="7203553.459495181">
+            <matched>false</matched>
+        </node>
+        <node id="7" x="2815206.180031695" y="7203792.070282051">
+            <matched>false</matched>
+        </node>
+        <node id="8" x="2815176.906518219" y="7203686.152311385">
+            <matched>false</matched>
+        </node>
+        <node id="9" x="2815099.4142273623" y="7203525.527657993">
+            <matched>false</matched>
+        </node>
+        <node id="10" x="2815229.5466971914" y="7203482.298160454">
+            <matched>false</matched>
+        </node>
+        <node id="11" x="2815406.2366676424" y="7203872.908944704">
+            <matched>false</matched>
+        </node>
+        <node id="12" x="2815334.5449666264" y="7203793.184629479">
+            <matched>false</matched>
+        </node>
+        <node id="13" x="2815376.736553049" y="7203972.887101243">
+            <matched>false</matched>
+        </node>
+        <node id="14" x="2814724.5995128923" y="7203311.72179447">
+            <matched>false</matched>
+        </node>
+        <node id="15" x="2815042.69469309" y="7203252.391385542">
+            <matched>false</matched>
+        </node>
+        <node id="16" x="2814647.7287558476" y="7203160.766725546">
+            <matched>false</matched>
+        </node>
+        <node id="17" x="2814546.895105536" y="7203226.710938826">
+            <matched>false</matched>
+        </node>
+        <node id="18" x="2814503.2205634285" y="7203325.733002087">
+            <matched>false</matched>
+        </node>
+        <node id="19" x="2814331.241788044" y="7203020.945249755">
+            <matched>false</matched>
+        </node>
+        <node id="20" x="2814538.257094793" y="7203334.269209196">
+            <matched>false</matched>
+        </node>
+        <node id="21" x="2814382.2486381037" y="7202920.778589319">
+            <matched>false</matched>
+        </node>
+        <node id="22" x="2814396.784470843" y="7202994.878913125">
+            <matched>false</matched>
+        </node>
+        <node id="23" x="2814437.2035777685" y="7203140.042358555">
+            <matched>false</matched>
+        </node>
+        <node id="24" x="2814436.5517665255" y="7202984.81380257">
+            <matched>false</matched>
+        </node>
+        <node id="25" x="2814621.121751302" y="7202950.237116655">
+            <matched>false</matched>
+        </node>
+        <node id="26" x="2814684.8443813734" y="7203077.627689667">
+            <matched>false</matched>
+        </node>
+        <node id="27" x="2814752.4404702517" y="7202986.7142447485">
+            <matched>false</matched>
+        </node>
+        <node id="28" x="2814757.32083066" y="7202927.401257999">
+            <matched>false</matched>
+        </node>
+        <node id="29" x="2814808.087273471" y="7202989.767696163">
+            <matched>false</matched>
+        </node>
+        <node id="30" x="2815002.6959578684" y="7202850.590076697">
+            <matched>false</matched>
+        </node>
+        <node id="31" x="2815059.3511873432" y="7203087.249884626">
+            <matched>false</matched>
+        </node>
+        <node id="32" x="2814889.347880538" y="7202880.985511558">
+            <matched>false</matched>
+        </node>
+    </nodes>
+    <links capperiod="01:00:00" effectivecellsize="7.5" effectivelanewidth="3.75">
+        <link id="1" from="1" to="2" length="236.36256690270284" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="10" from="1" to="3" length="77.46301172099112" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100" from="4" to="5" length="100.16716031210389" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="1000" from="3" to="5" length="118.43775534039864" freespeed="8.333333333333334" capacity="1000.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="secondary">
+            <weight>1.0</weight>
+        </link>
+        <link id="10000" from="4" to="6" length="69.26792960086325" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100000" from="6" to="7" length="49.5727589015469" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100001" from="7" to="10" length="49.5727589015469" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100002" from="6" to="8" length="126.17909215055612" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100003" from="8" to="9" length="88.36229281605156" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100004" from="9" to="12" length="88.36229281605156" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100005" from="12" to="13" length="489.9118923327569" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100006" from="9" to="11" length="489.9118923327569" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100007" from="10" to="11" length="96.83315754846404" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100008" from="11" to="15" length="96.83315754846404" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100009" from="2" to="14" length="280.321758668987" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="10001" from="13" to="14" length="67.99664046739028" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100010" from="15" to="16" length="85.74830830782572" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100011" from="17" to="20" length="55.72238383851375" freespeed="5.555555555555555" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100012" from="15" to="17" length="55.72238383851375" freespeed="5.555555555555555" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100013" from="16" to="17" length="227.17859754551284" freespeed="11.11111111111111" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100014" from="18" to="19" length="150.99327808786558" freespeed="11.11111111111111" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100015" from="19" to="20" length="456.44710712157644" freespeed="13.88888888888889" capacity="1500.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="trunk_link">
+            <weight>1.0</weight>
+        </link>
+        <link id="100016" from="16" to="18" length="176.72594464370445" freespeed="13.88888888888889" capacity="1500.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="trunk_link">
+            <weight>1.0</weight>
+        </link>
+        <link id="100017" from="20" to="22" length="50.110545620386034" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100018" from="20" to="21" length="50.110545620386034" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100019" from="20" to="10" length="55.239624126143575" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="10002" from="22" to="23" length="67.99664046739028" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100020" from="23" to="24" length="55.239624126143575" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100021" from="23" to="25" length="251.62299062873626" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100022" from="24" to="26" length="251.62299062873626" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100023" from="26" to="28" length="50.56237969504624" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100024" from="24" to="27" length="50.56237969504624" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100025" from="26" to="29" length="10.481137846927046" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100026" from="27" to="28" length="47.6671567178196" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100027" from="28" to="30" length="47.6671567178196" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100028" from="30" to="20" length="163.17123800480474" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100029" from="10" to="1" length="163.17123800480474" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="10003" from="30" to="31" length="436.86191989518204" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100030" from="32" to="30" length="55.955469189163296" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+        <link id="100031" from="31" to="32" length="55.955469189163296" freespeed="4.166666666666667" capacity="600.0" permlanes="1.0" oneway="1" modes="car" originid="0" type="residential">
+            <weight>1.0</weight>
+        </link>
+    </links>
+</network>

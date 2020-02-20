@@ -10,9 +10,9 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class Map extends Element{
 	
 	@XmlElement(name = "nodes")
-	public Nodes nodes;
+	public Nodes nodes = new Nodes();
 	@XmlElement(name = "links")
-	public Links links;
+	public Links links = new Links();
 
 	public Node getNode(Integer id) {
 		for (Node node : nodes.nodes) {

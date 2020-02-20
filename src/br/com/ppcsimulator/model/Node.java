@@ -2,6 +2,7 @@ package br.com.ppcsimulator.model;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -15,6 +16,7 @@ public class Node extends Element{
 	public double x;
 	@XmlAttribute(name = "y")
 	public double y;
+	@XmlTransient
 	public boolean matched;
 	
 	public Node() {

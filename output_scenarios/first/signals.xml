@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<traffic-signals>
+    <signal cycle_duration="90" offset="9">
+        <nodes>
+            <node id="1637" x="-6.074049552848032" y="47.88618266800851"/>
+            <node id="6257" x="13.159996285319542" y="22.587844063042866"/>
+        </nodes>
+        <phases>
+            <phase origin="17790" greem_duration="45" green_start="0"/>
+            <phase origin="25" greem_duration="45" green_start="0"/>
+            <phase origin="22184" greem_duration="28" green_start="46"/>
+            <phase origin="1637" greem_duration="28" green_start="46"/>
+        </phases>
+    </signal>
+    <signal cycle_duration="90" offset="9">
+        <nodes>
+            <node id="17914" x="-41.893903079668306" y="17.044085620437404"/>
+            <node id="1073" x="7.1051474048057175" y="-27.635599505344793"/>
+        </nodes>
+        <phases>
+            <phase origin="23650" greem_duration="45" green_start="0"/>
+            <phase origin="22013" greem_duration="45" green_start="0"/>
+            <phase origin="1697" greem_duration="28" green_start="46"/>
+            <phase origin="17914" greem_duration="28" green_start="46"/>
+        </phases>
+    </signal>
+    <signal cycle_duration="90" offset="9">
+        <nodes>
+            <node id="10464" x="33.823914363693284" y="-7.303390551053707"/>
+            <node id="11460" x="-41.878408703958854" y="-47.82143254843381"/>
+        </nodes>
+        <phases>
+            <phase origin="23075" greem_duration="45" green_start="0"/>
+            <phase origin="19413" greem_duration="45" green_start="0"/>
+            <phase origin="29080" greem_duration="28" green_start="46"/>
+            <phase origin="10464" greem_duration="28" green_start="46"/>
+        </phases>
+    </signal>
+    <signal cycle_duration="90" offset="9">
+        <nodes>
+            <node id="27256" x="-43.077075672393775" y="45.986460156881606"/>
+            <node id="8019" x="-15.457235985387257" y="-37.26019528473029"/>
+        </nodes>
+        <phases>
+            <phase origin="14195" greem_duration="45" green_start="0"/>
+            <phase origin="27870" greem_duration="45" green_start="0"/>
+            <phase origin="21246" greem_duration="28" green_start="46"/>
+            <phase origin="27256" greem_duration="28" green_start="46"/>
+        </phases>
+    </signal>
+    <signal cycle_duration="90" offset="9">
+        <nodes>
+            <node id="4070" x="-49.22547693601454" y="-32.95674110725667"/>
+            <node id="2846" x="11.145122221181452" y="11.552647046218967"/>
+        </nodes>
+        <phases>
+            <phase origin="18575" greem_duration="45" green_start="0"/>
+            <phase origin="20203" greem_duration="45" green_start="0"/>
+            <phase origin="20325" greem_duration="28" green_start="46"/>
+            <phase origin="4070" greem_duration="28" green_start="46"/>
+        </phases>
+    </signal>
+    <signal cycle_duration="90" offset="9">
+        <nodes>
+            <node id="29179" x="-3.5116219795252643" y="18.059605642008353"/>
+            <node id="17477" x="-48.87784700446412" y="-18.60815532750258"/>
+        </nodes>
+        <phases>
+            <phase origin="9767" greem_duration="45" green_start="0"/>
+            <phase origin="7320" greem_duration="45" green_start="0"/>
+            <phase origin="1291" greem_duration="28" green_start="46"/>
+            <phase origin="29179" greem_duration="28" green_start="46"/>
+        </phases>
+    </signal>
+    <signal cycle_duration="90" offset="9">
+        <nodes>
+            <node id="29053" x="-8.998902782451779" y="-48.798942475065914"/>
+            <node id="848" x="11.430806170237911" y="-32.11698657528764"/>
+        </nodes>
+        <phases>
+            <phase origin="4278" greem_duration="45" green_start="0"/>
+            <phase origin="13867" greem_duration="45" green_start="0"/>
+            <phase origin="6188" greem_duration="28" green_start="46"/>
+            <phase origin="29053" greem_duration="28" green_start="46"/>
+        </phases>
+    </signal>
+    <signal cycle_duration="90" offset="9">
+        <nodes>
+            <node id="11359" x="30.417089138136443" y="-11.937010893329724"/>
+            <node id="22558" x="18.468192479563523" y="-43.85283217528008"/>
+        </nodes>
+        <phases>
+            <phase origin="30466" greem_duration="45" green_start="0"/>
+            <phase origin="23455" greem_duration="45" green_start="0"/>
+            <phase origin="2442" greem_duration="28" green_start="46"/>
+            <phase origin="11359" greem_duration="28" green_start="46"/>
+        </phases>
+    </signal>
+    <signal cycle_duration="90" offset="9">
+        <nodes>
+            <node id="27541" x="19.832678107332946" y="9.015683628984972"/>
+            <node id="31226" x="-28.93239420913638" y="27.03514191978982"/>
+        </nodes>
+        <phases>
+            <phase origin="31589" greem_duration="45" green_start="0"/>
+            <phase origin="23999" greem_duration="45" green_start="0"/>
+            <phase origin="12727" greem_duration="28" green_start="46"/>
+            <phase origin="27541" greem_duration="28" green_start="46"/>
+        </phases>
+    </signal>
+    <signal cycle_duration="90" offset="9">
+        <nodes>
+            <node id="6998" x="-7.701855761876969" y="-39.788965244364185"/>
+            <node id="1809" x="37.75353030142776" y="24.1137124689842"/>
+        </nodes>
+        <phases>
+            <phase origin="26000" greem_duration="45" green_start="0"/>
+            <phase origin="1459" greem_duration="45" green_start="0"/>
+            <phase origin="27559" greem_duration="28" green_start="46"/>
+            <phase origin="6998" greem_duration="28" green_start="46"/>
+        </phases>
+    </signal>
+    <signal cycle_duration="90" offset="9">
+        <nodes>
+            <node id="7625" x="-10.014992847775328" y="12.817739164459363"/>
+            <node id="23062" x="-27.316485217464447" y="-34.78944735998443"/>
+        </nodes>
+        <phases>
+            <phase origin="3640" greem_duration="45" green_start="0"/>
+            <phase origin="22041" greem_duration="45" green_start="0"/>
+            <phase origin="15892" greem_duration="28" green_start="46"/>
+            <phase origin="7625" greem_duration="28" green_start="46"/>
+        </phases>
+    </signal>
+    <signal cycle_duration="90" offset="9">
+        <nodes>
+            <node id="15907" x="-39.52800907470676" y="-22.922255288674016"/>
+            <node id="25588" x="38.19995760485398" y="-9.909341902285263"/>
+        </nodes>
+        <phases>
+            <phase origin="24748" greem_duration="45" green_start="0"/>
+            <phase origin="1144" greem_duration="45" green_start="0"/>
+            <phase origin="6396" greem_duration="28" green_start="46"/>
+            <phase origin="15907" greem_duration="28" green_start="46"/>
+        </phases>
+    </signal>
+    <signal cycle_duration="90" offset="9">
+        <nodes>
+            <node id="19883" x="-18.51423721006855" y="-35.28930890056252"/>
+            <node id="26299" x="-0.5419297823044622" y="44.97419422552903"/>
+        </nodes>
+        <phases>
+            <phase origin="13573" greem_duration="45" green_start="0"/>
+            <phase origin="16308" greem_duration="45" green_start="0"/>
+            <phase origin="1952" greem_duration="28" green_start="46"/>
+            <phase origin="19883" greem_duration="28" green_start="46"/>
+        </phases>
+    </signal>
+    <signal cycle_duration="90" offset="9">
+        <nodes>
+            <node id="15956" x="-1.691787038350051" y="27.584442797112967"/>
+            <node id="4449" x="14.424757509824214" y="12.979540458887529"/>
+        </nodes>
+        <phases>
+            <phase origin="16664" greem_duration="45" green_start="0"/>
+            <phase origin="25069" greem_duration="45" green_start="0"/>
+            <phase origin="26719" greem_duration="28" green_start="46"/>
+            <phase origin="15956" greem_duration="28" green_start="46"/>
+        </phases>
+    </signal>
+    <signal cycle_duration="90" offset="9">
+        <nodes>
+            <node id="16123" x="21.059431679773937" y="-26.758256959206744"/>
+            <node id="19254" x="17.77963422818356" y="41.55191050262304"/>
+        </nodes>
+        <phases>
+            <phase origin="15187" greem_duration="45" green_start="0"/>
+            <phase origin="30674" greem_duration="45" green_start="0"/>
+            <phase origin="29112" greem_duration="28" green_start="46"/>
+            <phase origin="16123" greem_duration="28" green_start="46"/>
+        </phases>
+    </signal>
+</traffic-signals>

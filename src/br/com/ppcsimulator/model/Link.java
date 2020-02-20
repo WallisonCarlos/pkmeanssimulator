@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -33,8 +34,27 @@ public class Link extends Element{
 	public int originid;
 	@XmlAttribute(name = "type")
 	public String type;
-	public double weight = 1.0;
+	@XmlTransient
+	public double weight = length;
 	
+	
+	
+	public Link(int id, int from, int to, double length, double freespeed, double capacity, float permlanes, int oneway,
+			String modes, int originid, String type) {
+		super();
+		this.id = id;
+		this.from = from;
+		this.to = to;
+		this.length = length;
+		this.freespeed = freespeed;
+		this.capacity = capacity;
+		this.permlanes = permlanes;
+		this.oneway = oneway;
+		this.modes = modes;
+		this.originid = originid;
+		this.type = type;
+	}
+
 	public Link() {
 	
 	}

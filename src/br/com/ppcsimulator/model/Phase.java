@@ -10,33 +10,20 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class Phase {
 
 	@XmlAttribute(name = "origin")
-	private int origin;
+	public int origin;
 	@XmlAttribute(name = "greem_duration")
-	private int green_duration;
+	public int green_duration;
 	@XmlAttribute(name = "green_start")
-	private int green_start;
+	public int green_start;
 	
-	public int getOrigin() {
-		return origin;
+	public Phase() {
+		
 	}
 	
-	public void setOrigin(int origin) {
+	public Phase(int origin, int green_duration, int green_start) {
+		super();
 		this.origin = origin;
-	}
-	
-	public int getGreen_duration() {
-		return green_duration;
-	}
-	
-	public void setGreen_duration(int green_duration) {
 		this.green_duration = green_duration;
-	}
-	
-	public int getGreen_start() {
-		return green_start;
-	}
-	
-	public void setGreen_start(int green_start) {
 		this.green_start = green_start;
 	}
 	
