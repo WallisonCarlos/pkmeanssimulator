@@ -119,6 +119,35 @@ public class Graph implements Cloneable{
 	    return neighbors;
 	}
 	
+	public static Node getNode(int id, Set<Node> vertices) {
+		for (Node node : vertices) {
+			if (node.id == id) {
+				return node;
+			}
+		}
+		return null;
+	}
+	
+	public static Set<Neighbor> getNeighbors(Node vertex, Set<Node> others, Set<Link> edges) {
+		Set<Neighbor> neighbors = new HashSet<Neighbor>();
+	    for (Link edge : edges) {
+	    	if (edge.from == vertex.id) {
+	    		Node v = getNode(edge.to, others);
+	    		if (v != null) {
+	    			neighbors.add(new Neighbor(v, edge));
+	    		}
+	    		continue;
+	    	}
+	    	if (edge.to == vertex.id) {
+	    		Node v = getNode(edge.from, others);
+	    		if (v != null) {
+	    			neighbors.add(new Neighbor(v, edge));
+	    		}
+	    	}
+	    }
+	    return neighbors;
+	}
+	
 	public boolean nodeExists(int id) {
 		for (Node node : vertices) {
 			if (node.id == id) {

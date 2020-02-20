@@ -1,6 +1,7 @@
 package br.com.ppcsimulator;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import javax.xml.bind.JAXBException;
 
@@ -37,11 +38,15 @@ public class App {
 		bgp = new BinaryGraphPartitioning(8);
 		bgp.setData(data);
 		Graph graph = new Graph(map);
+		System.out.println(LocalDateTime.now());
 		System.out.println("Before:\n"+graph);
 		Graph g = bgp.coarsening(graph);
 		System.out.println("After:\n"+g);
+		System.out.println(LocalDateTime.now());
 		bgp.partition(g);
+		System.out.println(LocalDateTime.now());
 		bgp.printLeaves();
+		System.out.println(LocalDateTime.now());
 		
 	}
 	
