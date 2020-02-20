@@ -1,26 +1,17 @@
 package br.com.ppcsimulator;
 
-import java.io.File;
 import java.io.IOException;
 
 import javax.xml.bind.JAXBException;
 
-import org.jgrapht.alg.interfaces.PartitioningAlgorithm;
-import org.jgrapht.alg.interfaces.PartitioningAlgorithm.PartitioningImpl;
-
-import br.com.ppcsimulator.model.Data;
-import br.com.ppcsimulator.model.Element;
 import br.com.ppcsimulator.model.Map;
 import br.com.ppcsimulator.model.Metro;
 import br.com.ppcsimulator.model.ModelFactory;
 import br.com.ppcsimulator.model.SCSimulatorMatrix;
-import br.com.ppcsimulator.model.Scenario;
 import br.com.ppcsimulator.model.SimulatorBuses;
 import br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning.BinaryGraphPartitioning;
 import br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning.Graph;
-import br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning.kernighanlin.KernighanLin;
 import br.com.ppcsimulator.utils.algorithms.kmeans.KMeans;
-import br.com.ppcsimulator.utils.xml.XMLConversor;
 
 public class App {
 
@@ -33,32 +24,17 @@ public class App {
 	public static void main(String args[]) throws JAXBException, CloneNotSupportedException, IOException {
 		ModelFactory.BASE_DIR = "output_scenarios/first";
 		map = ModelFactory.buildMap();
-//		simulatorBuses = ModelFactory.buildSimulatorBuses();
-//		metro = ModelFactory.buildMetro();
-//		scSimulatorMatrix = ModelFactory.buildSCSimulatorMatrix();
+		simulatorBuses = ModelFactory.buildSimulatorBuses();
+		metro = ModelFactory.buildMetro();
+		scSimulatorMatrix = ModelFactory.buildSCSimulatorMatrix();
 		System.out.println(map.nodes.nodes.size());
-		//Scenario scenario = Scenario.build();
-		//System.out.println("Create scenario...");
-		//scenario.createFiles("first");
-		//XMLConversor<Map> conversor = new XMLConversor<Map>(scenario.getMap(), new File("output/map2.xml"));
-		//conversor.createFile();
-		//System.out.println("File created!!");
-//		Data data = new Data();
-//		data.setMap(map);
-//		data.setMetro(metro);
-//		data.setScSimulatorMatrix(scSimulatorMatrix);
-//		data.setSimulatorBuses(simulatorBuses);
 		bgp = new BinaryGraphPartitioning(8);
 		Graph graph = new Graph(map);
 		System.out.println("Before:\n"+graph);
 		Graph g = bgp.coarsening(graph);
 		System.out.println("After:\n"+g);
-//		KernighanLin kernighanLin = KernighanLin.process(g);
-//		System.out.println("CutCost: "+kernighanLin.getCutCost());
-//		System.out.println("Graph A: "+kernighanLin.getA()+"\nGraph B: "+kernighanLin.getB());
-		
-		//bgp.partition(new Graph(map));
-		//bgp.printLeaves();
+		bgp.partition(g);
+		bgp.printLeaves();
 		
 	}
 	

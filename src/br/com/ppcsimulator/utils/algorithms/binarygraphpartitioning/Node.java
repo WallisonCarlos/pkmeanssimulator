@@ -1,7 +1,17 @@
 package br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning;
 
+import java.util.ArrayList;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+
+import br.com.ppcsimulator.model.Data;
+import br.com.ppcsimulator.model.Link;
+import br.com.ppcsimulator.model.LinkMetro;
+import br.com.ppcsimulator.model.Scenario;
+import br.com.ppcsimulator.model.Station;
+import br.com.ppcsimulator.model.TrafficSignals;
+import br.com.ppcsimulator.model.Trip;
 
 public class Node {
 	
@@ -11,6 +21,7 @@ public class Node {
 	private Node left;
 	private Node right;
 	private double cutCost;
+	private Scenario scenario = new Scenario();
 	
 	public int getId() {
 		return id;
@@ -63,6 +74,44 @@ public class Node {
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE).toString();
+	}
+	
+	public void createPartition(Data data) {
+		for (int i = 0;i < data.getMetro().stations.stations.size();i++) {
+			Station station = data.getMetro().stations.stations.get(i);
+			if (graph.nodeExists(station.idNode)) {
+				scenario.getMetro().stations.stations.add(station);
+				for (int j = 0;j < data.getMetro().links.size();j++) {
+					LinkMetro l = data.getMetro().links.get(j);
+					if (station.idNode == l.idOrigin) {
+						scenario.getMetro().links.add(l);
+					}
+				}
+			}
+		}
+		for (int i = 0;i < data.getMap().links.links.size();i++) {
+			Link link = data.getMap().links.links.get(i);
+			if (graph.nodeExists(link.from) || graph.nodeExists(link.to)) {
+				scenario.getMap().links.links.add(link);
+			}
+		}
+		for (br.com.ppcsimulator.model.Node node : graph.getVertices()) {
+			scenario.getMap().nodes.nodes.add(node);
+		}
+		for (int i = 0;i < data.getScSimulatorMatrix().trips.size() ;i++) {
+			Trip trip = data.getScSimulatorMatrix().trips.get(i);
+			if (graph.nodeExists(trip.origin)) {
+				scenario.getTrips().trips.add(trip);
+			}
+		}
+		TrafficSignals ts = new TrafficSignals();
+		ts.signals = data.getSignals();
+		scenario.setSignals(ts);
+		try {
+			scenario.createFiles("partition-"+id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

@@ -16,6 +16,7 @@ public class BinaryGraphPartitioning {
 	
 	private Node root;
 	private Graph graph;
+	private Data data;
 	private int numberProcessors;
 	
 	public BinaryGraphPartitioning() {
@@ -50,6 +51,16 @@ public class BinaryGraphPartitioning {
 
 	public void setGraph(Graph graph) {
 		this.graph = graph;
+	}
+	
+	
+
+	public Data getData() {
+		return data;
+	}
+
+	public void setData(Data data) {
+		this.data = data;
 	}
 
 	public void partition(Graph graph) throws CloneNotSupportedException {
@@ -89,6 +100,9 @@ public class BinaryGraphPartitioning {
 	private void printLeaves(Node node) {
 		if (node == null) { return; }
 		System.out.println(node);
+		if (node.getLeft() == null && node.getRight() == null) {
+			node.createPartition(data);
+		}
 		printLeaves(node.getLeft());
 		printLeaves(node.getRight());
 	}

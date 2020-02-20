@@ -119,6 +119,15 @@ public class Graph implements Cloneable{
 	    return neighbors;
 	}
 	
+	public boolean nodeExists(int id) {
+		for (Node node : vertices) {
+			if (node.id == id) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public Node getNode(int id) {
 		for (Node v : vertices) {
 			if (v.id == id) {
