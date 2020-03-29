@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<scsimulator_matrix>
+    <trip name="consolacao_random_walk_40" origin="1953466378" destination="60609811" link_origin="4343" count="1" digital_rails_capable="false" mode="car" start="3592"/>
+    <trip name="consolacao_random_walk_130" origin="1953466378" destination="60609811" link_origin="4343" count="1" digital_rails_capable="false" mode="car" start="104"/>
+    <trip name="consolacao_random_walk_420" origin="1953466378" destination="60609811" link_origin="4343" count="1" digital_rails_capable="false" mode="car" start="2596"/>
+    <trip name="consolacao_random_walk_850" origin="1953466378" destination="60609811" link_origin="4343" count="1" digital_rails_capable="false" mode="car" start="2310"/>
+    <trip name="consolacao_random_walk_870" origin="1953466378" destination="60609811" link_origin="4343" count="1" digital_rails_capable="false" mode="car" start="2736"/>
+    <trip name="consolacao_random_walk_910" origin="1953466378" destination="60609811" link_origin="4343" count="1" digital_rails_capable="false" mode="car" start="2685"/>
+    <trip name="consolacao_random_walk_1040" origin="1953466378" destination="60609811" link_origin="4343" count="1" digital_rails_capable="false" mode="car" start="1097"/>
+    <trip name="consolacao_random_walk_2160" origin="1953466378" destination="60609811" link_origin="4343" count="1" digital_rails_capable="false" mode="car" start="2822"/>
+    <trip name="consolacao_random_walk_2420" origin="1953466378" destination="60609811" link_origin="4343" count="1" digital_rails_capable="false" mode="car" start="1897"/>
+    <trip name="consolacao_random_walk_2440" origin="1953466378" destination="60609811" link_origin="4343" count="1" digital_rails_capable="false" mode="car" start="2810"/>
+    <trip name="consolacao_random_walk_2800" origin="1953466378" destination="60609811" link_origin="4343" count="1" digital_rails_capable="false" mode="car" start="1083"/>
+</scsimulator_matrix>

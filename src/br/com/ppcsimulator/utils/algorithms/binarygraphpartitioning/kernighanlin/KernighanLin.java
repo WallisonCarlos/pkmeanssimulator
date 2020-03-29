@@ -1,11 +1,13 @@
 package br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning.kernighanlin;
 
+import java.time.LocalDateTime;
 import java.util.Deque;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
 import br.com.ppcsimulator.model.Link;
+import br.com.ppcsimulator.model.Neighbor;
 import br.com.ppcsimulator.model.Node;
 import br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning.Graph;
 
@@ -123,7 +125,8 @@ public class KernighanLin {
 	    double minCost = Double.POSITIVE_INFINITY;
 	    int minId = -1;
 	    
-	    for (int i = 0; i < partitionSize; i++) {
+	    for (int i = 0; i < 3; i++) {
+	    	System.out.println("Partition cost... "+i);
 	    	double cost = doSingleSwap(swaps);
 	    	if (cost < minCost) {
 	    		minCost = cost; minId = i; 
@@ -142,26 +145,42 @@ public class KernighanLin {
 	
 	/** Chooses the least cost swap and performs it **/
 	private double doSingleSwap(Deque<Pair<Node>> swaps) {
-	    
 		Pair<Node> maxPair = null;
 	    double maxGain = Double.NEGATIVE_INFINITY;
-	    
+	    int i = 0;	    
+	    System.out.println("doSingleSwap: "+LocalDateTime.now());
 	    for (Node vertexA : unswappedA.getVertices()) {
-	    	for (Node vertexB : unswappedB.getVertices()) {
-	        Link edge = graph.findEdge(vertexA, vertexB);
-	        double edgeCost = (edge != null) ? edge.weight : 0;
-	        // Calculate the gain in cost if these vertices were swapped
-	        // subtract 2*edge_cost because this edge will still be an external edge
-	        // after swapping
-	        double gain = getVertexCost(vertexA) + getVertexCost(vertexB) - 2 * edgeCost;
-	        
-	        if (gain > maxGain) {
-	          maxPair = new Pair<Node>(vertexA, vertexB);
-	          maxGain = gain;
-	        }
-	        
-	      }
+	    	System.out.println(i+" - "+vertexA);
+	    	Set<Neighbor> neighbors = Graph.getNeighbors(vertexA, unswappedB.getVertices(), graph.getEdges());
+	    	double costA = getVertexCost(vertexA, neighbors);
+	    	for (Neighbor neighbor: neighbors) {
+		    	double edgeCost = (neighbor.link != null) ? neighbor.link.weight : 0;
+		        double gain = costA + getVertexCost(neighbor.node, Graph.getNeighbors(neighbor.node, unswappedB.getVertices(), graph.getEdges())) - 2 * edgeCost;
+		        if (gain > maxGain) {
+		          maxPair = new Pair<Node>(vertexA, neighbor.node);
+		          maxGain = gain;
+		        }
+	    	}
+	    	i++;
 	    }
+	    
+//		for (Node vertexA : unswappedA.getVertices()) {
+//	    
+//	    	for (Node vertexB : unswappedB.getVertices()) {
+//	        Link edge = graph.findEdge(vertexA, vertexB);
+//	        double edgeCost = (edge != null) ? edge.weight : 0;
+//	        // Calculate the gain in cost if these vertices were swapped
+//	        // subtract 2*edge_cost because this edge will still be an external edge
+//	        // after swapping
+//	        double gain = getVertexCost(vertexA) + getVertexCost(vertexB) - 2 * edgeCost;
+//	        
+//	        if (gain > maxGain) {
+//	          maxPair = new Pair<Node>(vertexA, vertexB);
+//	          maxGain = gain;
+//	        }
+//	        
+//	      }
+//	    }
 	    
 	    swapVertices(A, maxPair.getFirst(), B, maxPair.getSecond());
 	    swaps.push(maxPair);
@@ -174,21 +193,28 @@ public class KernighanLin {
 	/** Returns the difference of external cost and internal cost of this vertex.
 	   *  When moving a vertex from within group A, all internal edges become external 
 	   *  edges and vice versa. **/
-	private double getVertexCost(Node vertex) {
+	private double getVertexCost(Node vertex, Set<Neighbor> neighborsB) {
 	    
 	    double cost = 0;
+	    Set<Neighbor> neighborsA = Graph.getNeighbors(vertex, A.getVertices(), graph.getEdges());
 	    boolean vertex1isInA = A.getVertices().contains(vertex);
-
-	    for (Node vertex2 : graph.getNeighbors(vertex)) {
-	    	boolean vertex2isInA = A.getVertices().contains(vertex2);
-	    	Link edge = graph.findEdge(vertex, vertex2);
-	      
-	    	if (vertex1isInA != vertex2isInA) { // external
-	    		cost += edge.weight;
-	    	} else {
-	    		cost -= edge.weight;
-	    	}
+	    for (Neighbor neighbor : neighborsA) {
+	    	cost -= neighbor.link.weight;
 	    }
+	    for (Neighbor neighbor : neighborsB) {
+	    	cost += neighbor.link.weight;
+	    }
+
+//	    for (Node vertex2 : graph.getNeighbors(vertex)) {
+//	    	boolean vertex2isInA = A.getVertices().contains(vertex2);
+//	    	Link edge = graph.findEdge(vertex, vertex2);
+//	      
+//	    	if (vertex1isInA != vertex2isInA) { // external
+//	    		cost += edge.weight;
+//	    	} else {
+//	    		cost -= edge.weight;
+//	    	}
+//	    }
 	    return cost;
 	}
 	  

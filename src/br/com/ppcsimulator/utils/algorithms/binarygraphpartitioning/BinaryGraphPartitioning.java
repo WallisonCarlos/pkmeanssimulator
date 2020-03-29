@@ -1,8 +1,6 @@
 package br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning;
 
-import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 import br.com.ppcsimulator.model.Data;
 import br.com.ppcsimulator.model.Element;
@@ -75,6 +73,7 @@ public class BinaryGraphPartitioning {
 		if (begin + 1 >= end) {
 			node.setGraph(graph);
 			node.setRank(begin);
+			node.createPartition(data);
 			System.out.println("Stop!!");
 			return ;
 		} else {

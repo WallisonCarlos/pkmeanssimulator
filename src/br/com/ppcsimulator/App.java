@@ -2,6 +2,7 @@ package br.com.ppcsimulator;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import javax.xml.bind.JAXBException;
 
@@ -38,17 +39,21 @@ public class App {
 		data.setSimulatorBuses(simulatorBuses);
 		data.setScSimulatorMatrix(scSimulatorMatrix);
 		System.out.println(map.nodes.nodes.size());
-		bgp = new BinaryGraphPartitioning(8);
+		bgp = new BinaryGraphPartitioning(16);
 		bgp.setData(data);
 		Graph graph = new Graph(map);
+		System.out.println(LocalDateTime.now());
 		System.out.println("Before:\n"+graph);
 		Graph g = bgp.coarsening(graph);
 		System.out.println("After:\n"+g);
+		System.out.println(LocalDateTime.now());
 		bgp.partition(g);
+		System.out.println(LocalDateTime.now());
 		bgp.printLeaves();
 		FileManager.create(new File("interscsimulator/docker-compose.yml"), DockerComposeUtils.content(8));
 		Runnable run = new RunSimulator();
 		run.run();
+		System.out.println(LocalDateTime.now());
 		
 	}
 	
