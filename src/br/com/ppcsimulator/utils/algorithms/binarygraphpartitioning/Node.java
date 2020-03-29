@@ -1,16 +1,11 @@
 package br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning;
 
-import java.util.ArrayList;
-
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import br.com.ppcsimulator.model.Data;
 import br.com.ppcsimulator.model.Link;
-import br.com.ppcsimulator.model.LinkMetro;
 import br.com.ppcsimulator.model.Scenario;
-import br.com.ppcsimulator.model.Station;
-import br.com.ppcsimulator.model.TrafficSignals;
 import br.com.ppcsimulator.model.Trip;
 
 public class Node {
@@ -77,18 +72,18 @@ public class Node {
 	}
 	
 	public void createPartition(Data data) {
-		for (int i = 0;i < data.getMetro().stations.stations.size();i++) {
-			Station station = data.getMetro().stations.stations.get(i);
-			if (graph.nodeExists(station.idNode)) {
-				scenario.getMetro().stations.stations.add(station);
-				for (int j = 0;j < data.getMetro().links.size();j++) {
-					LinkMetro l = data.getMetro().links.get(j);
-					if (station.idNode == l.idOrigin) {
-						scenario.getMetro().links.add(l);
-					}
-				}
-			}
-		}
+//		for (int i = 0;i < data.getMetro().stations.stations.size();i++) {
+//			Station station = data.getMetro().stations.stations.get(i);
+//			if (graph.nodeExists(station.idNode)) {
+//				scenario.getMetro().stations.stations.add(station);
+//				for (int j = 0;j < data.getMetro().links.size();j++) {
+//					LinkMetro l = data.getMetro().links.get(j);
+//					if (station.idNode == l.idOrigin) {
+//						scenario.getMetro().links.add(l);
+//					}
+//				}
+//			}
+//		}
 		for (int i = 0;i < data.getMap().links.links.size();i++) {
 			Link link = data.getMap().links.links.get(i);
 			if (graph.nodeExists(link.from) || graph.nodeExists(link.to)) {
@@ -108,7 +103,7 @@ public class Node {
 //		ts.signals = data.getSignals();
 //		scenario.setSignals(ts);
 		try {
-			scenario.createFiles("partition-"+id);
+			scenario.createFiles("partition-"+rank);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

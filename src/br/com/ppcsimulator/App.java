@@ -35,7 +35,7 @@ public class App {
 		data.setSimulatorBuses(simulatorBuses);
 		data.setScSimulatorMatrix(scSimulatorMatrix);
 		System.out.println(map.nodes.nodes.size());
-		bgp = new BinaryGraphPartitioning(8);
+		bgp = new BinaryGraphPartitioning(16);
 		bgp.setData(data);
 		Graph graph = new Graph(map);
 		System.out.println(LocalDateTime.now());
