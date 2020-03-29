@@ -1,5 +1,6 @@
 package br.com.ppcsimulator;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.xml.bind.JAXBException;
@@ -13,6 +14,9 @@ import br.com.ppcsimulator.model.SimulatorBuses;
 import br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning.BinaryGraphPartitioning;
 import br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning.Graph;
 import br.com.ppcsimulator.utils.algorithms.kmeans.KMeans;
+import br.com.ppcsimulator.utils.file.FileManager;
+import br.com.ppcsimulator.utils.runsimulator.DockerComposeUtils;
+import br.com.ppcsimulator.utils.runsimulator.RunSimulator;
 
 public class App {
 
@@ -23,7 +27,7 @@ public class App {
 	private static KMeans kMeans;
 	private static BinaryGraphPartitioning bgp;
 	public static void main(String args[]) throws JAXBException, CloneNotSupportedException, IOException {
-		ModelFactory.BASE_DIR = "scenarios/sp_completo";
+		ModelFactory.BASE_DIR = "scenarios/base_scenario";
 		map = ModelFactory.buildMap();
 		simulatorBuses = ModelFactory.buildSimulatorBuses();
 		metro = ModelFactory.buildMetro();
@@ -42,6 +46,9 @@ public class App {
 		System.out.println("After:\n"+g);
 		bgp.partition(g);
 		bgp.printLeaves();
+		FileManager.create(new File("interscsimulator/docker-compose.yml"), DockerComposeUtils.content(8));
+		Runnable run = new RunSimulator();
+		run.run();
 		
 	}
 	

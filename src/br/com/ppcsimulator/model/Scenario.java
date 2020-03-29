@@ -26,7 +26,7 @@ public class Scenario {
 	}
 	
 	public void createFiles(String scenario) throws IOException {
-		File dir = new File("output_scenarios/"+scenario+"/");
+		File dir = new File("interscsimulator/mock-simulators/smart_city_model/"+scenario+"/");
 		if (dir.mkdir()) {
 			new XMLConversor<Map>(map, new File("output_scenarios/"+scenario+"/map.xml")).createFile();
 			new XMLConversor<SCSimulatorMatrix>(trips, new File("output_scenarios/"+scenario+"/trips.xml")).createFile();

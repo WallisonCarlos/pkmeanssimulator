@@ -1,0 +1,133 @@
+version: '3'
+services:
+	c0:
+		build:
+      			context: .
+      			dockerfile: ./Dockerfile
+      			environment:
+        				USER: 'root'
+        				CONFIG_PATH: '/src/mock-simulators/smart_city_model/base_scenario_distributed-8-patition0-/config.xml'
+		container_name: host0.com
+		commands: ["erl -noshell -name 1fa5db48-d3d7-49ae-b646-9e896361173a@host0.com -setcookie cookie", ""]		volumes:
+			- .:/home/eduardo/volume:/src/mock-simulators/smart_city_model/output/0
+		networks: 
+			- interscsimulator
+
+
+	c1:
+		build:
+      			context: .
+      			dockerfile: ./Dockerfile
+      			environment:
+        				USER: 'root'
+        				CONFIG_PATH: '/src/mock-simulators/smart_city_model/base_scenario_distributed-8-patition1-/config.xml'
+		container_name: host1.com
+		commands: ["erl -noshell -name 1e398672-0bd4-4100-a3d9-76d80ba32f25@host1.com -setcookie cookie", ""]		volumes:
+			- .:/home/eduardo/volume:/src/mock-simulators/smart_city_model/output/1
+		networks: 
+			- interscsimulator
+
+
+	c2:
+		build:
+      			context: .
+      			dockerfile: ./Dockerfile
+      			environment:
+        				USER: 'root'
+        				CONFIG_PATH: '/src/mock-simulators/smart_city_model/base_scenario_distributed-8-patition2-/config.xml'
+		container_name: host2.com
+		commands: ["erl -noshell -name 3460b72e-2989-49c1-a9fd-2f5b52253926@host2.com -setcookie cookie", ""]		volumes:
+			- .:/home/eduardo/volume:/src/mock-simulators/smart_city_model/output/2
+		networks: 
+			- interscsimulator
+
+
+	c3:
+		build:
+      			context: .
+      			dockerfile: ./Dockerfile
+      			environment:
+        				USER: 'root'
+        				CONFIG_PATH: '/src/mock-simulators/smart_city_model/base_scenario_distributed-8-patition3-/config.xml'
+		container_name: host3.com
+		commands: ["erl -noshell -name a467e828-1777-42b8-96c1-980131cbbf25@host3.com -setcookie cookie", ""]		volumes:
+			- .:/home/eduardo/volume:/src/mock-simulators/smart_city_model/output/3
+		networks: 
+			- interscsimulator
+
+
+	c4:
+		build:
+      			context: .
+      			dockerfile: ./Dockerfile
+      			environment:
+        				USER: 'root'
+        				CONFIG_PATH: '/src/mock-simulators/smart_city_model/base_scenario_distributed-8-patition4-/config.xml'
+		container_name: host4.com
+		commands: ["erl -noshell -name 49aa2198-f89e-4003-8ab5-f604934b2eb9@host4.com -setcookie cookie", ""]		volumes:
+			- .:/home/eduardo/volume:/src/mock-simulators/smart_city_model/output/4
+		networks: 
+			- interscsimulator
+
+
+	c5:
+		build:
+      			context: .
+      			dockerfile: ./Dockerfile
+      			environment:
+        				USER: 'root'
+        				CONFIG_PATH: '/src/mock-simulators/smart_city_model/base_scenario_distributed-8-patition5-/config.xml'
+		container_name: host5.com
+		commands: ["erl -noshell -name 64c12e8d-eac1-4ad9-9208-8cf3fa2c55fa@host5.com -setcookie cookie", ""]		volumes:
+			- .:/home/eduardo/volume:/src/mock-simulators/smart_city_model/output/5
+		networks: 
+			- interscsimulator
+
+
+	c6:
+		build:
+      			context: .
+      			dockerfile: ./Dockerfile
+      			environment:
+        				USER: 'root'
+        				CONFIG_PATH: '/src/mock-simulators/smart_city_model/base_scenario_distributed-8-patition6-/config.xml'
+		container_name: host6.com
+		commands: ["erl -noshell -name f8dd24a7-eec8-4737-8699-7e72940054fd@host6.com -setcookie cookie", ""]		volumes:
+			- .:/home/eduardo/volume:/src/mock-simulators/smart_city_model/output/6
+		networks: 
+			- interscsimulator
+
+
+	c7:
+		build:
+      			context: .
+      			dockerfile: ./Dockerfile
+      			environment:
+        				USER: 'root'
+        				CONFIG_PATH: '/src/mock-simulators/smart_city_model/base_scenario_distributed-8-patition7-/config.xml'
+		container_name: host7.com
+		commands: ["erl -noshell -name d1222284-6877-4494-9e71-29eba58f0210@host7.com -setcookie cookie", ""]		volumes:
+			- .:/home/eduardo/volume:/src/mock-simulators/smart_city_model/output/7
+		networks: 
+			- interscsimulator
+
+
+ejabberd:
+	image: rroemhild/ejabberd 
+	ports:
+		- 5222:5222
+		- 5269:5269
+		- 5280:5280
+	container_name: host8.com
+	environment:
+		- ERLANG_NODE=ejabberd@host8.com
+		- XMPP_DOMAIN=test.io
+		- ERLANG_COOKIE=cookie
+		- EJABBERD_ADMINS=admin@test.io
+		- EJABBERD_USERS=admin@test.io:admin
+		- EJABBERD_SKIP_MODULES_UPDATE=true
+	networks:
+		- interscsimulator
+networks:
+	interscsimulator:
+		driver: bridge

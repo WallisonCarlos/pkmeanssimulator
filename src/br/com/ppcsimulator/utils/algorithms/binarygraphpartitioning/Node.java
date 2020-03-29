@@ -1,5 +1,6 @@
 package br.com.ppcsimulator.utils.algorithms.binarygraphpartitioning;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -12,6 +13,7 @@ import br.com.ppcsimulator.model.Scenario;
 import br.com.ppcsimulator.model.Station;
 import br.com.ppcsimulator.model.TrafficSignals;
 import br.com.ppcsimulator.model.Trip;
+import br.com.ppcsimulator.utils.file.FileManager;
 
 public class Node {
 	
@@ -108,7 +110,18 @@ public class Node {
 //		ts.signals = data.getSignals();
 //		scenario.setSignals(ts);
 		try {
-			scenario.createFiles("partition-"+id);
+			String sc = "base_scenario_distributed-patition-"+id;
+			scenario.createFiles(sc);
+			String configContent = "<scsimulator_config>\n" + 
+					"  <config \n" + 
+					"    trip_file=\"../"+sc+"/trips.xml\" \n" + 
+					"    map_file=\"../"+sc+"/network.xml\" \n" + 
+					"    output_file=\"../output/events.xml\" \n" + 
+					"    traffic_signals_file=\"../"+sc+"/signals.xml\"\n" + 
+					"    digital_rails_file=\"../"+sc+"/empty-digital-rails.xml\"\n" + 
+					"    simulation_time=\"86400\"/>\n" + 
+					"</scsimulator_config>";
+			FileManager.create(new File("interscsimulator/mock-simulators/smart_city_model/"+sc+"/config.xml"), configContent);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
